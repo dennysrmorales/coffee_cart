@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <title>Coffee Cart</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'cart/bootstrap.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-grid.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-grid.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link href="{% static 'cart/style.css' %}" rel="stylesheet"> 
+   
+</head>
+<body>
+  <header>
+    <h1 id='main_header'>Coffee Cart Application</h1>
+  </header>
+
+  <div align="center">
+      <div id = "content" class="col-md-5 border border-dark">
+          <h3>{{action}} Drink</h3>
+          <hr>
+
+        <form class="form-signin" method="POST" action="{% url 'add_drink' %}">
+          {% csrf_token %}
+          {{form}}
+
+          <button id="add" class="btn btn-primary" type="submit">{{button_action}}</button>
+
+        </form>
+
+        <div align="right">
+            <a href="{% url 'index' %}" class="btn btn-primary">Back to Menu</a>
+        </div>
+
+      </div>
+    </div>
+
+    <footer id="main-footer">
+      <p>Copyright &copy; 2018 Morales</p>
+    </footer>
+
+</body>
+</html>

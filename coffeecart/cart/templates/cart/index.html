@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>Coffee Cart</title>
+    <link href="{% static 'cart/bootstrap.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-grid.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-grid.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'cart/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link href="{% static 'cart/style.css' %}" rel="stylesheet"> 
+   
+</head>
+<body>
+	<header>
+		<h1 id='main_header'>~Coffee Cart Application~</h1>
+	</header>
+
+	<div id="content" class="row">
+	    <div id="left_div" class="col-md-5 border border-dark">
+	        <h3><img id="main_img" src="{% static 'cart/drink_2.png' %}">Drinks</h3>
+
+	        <hr>
+        	
+			{% for drink in drinks_list %}
+			<div class="border border-dark items">
+		        <div>
+		        	<h4>{{drink.name}}</h4>
+		        	<a href="{% url 'edit_item' drink.name %}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+		        	<a href="{% url 'delete_item' drink.name %}"><button type="button" class="btn btn-primary btn-sm">Delete</button></a>
+		        	<a href="{% url 'features' drink.name %}"><button type="button" class="btn btn-primary btn-sm">Show Drink Features</button></a>
+
+		        </div>
+		    </div>
+		    {% endfor %}
+
+		    <hr>
+		    <div align="center">
+		 		<a href="{% url 'add_drink' %}"><button type="button" class="btn btn-primary ">Add Drink</button></a>
+		 		<a href="{% url 'items' 'drink' %}" class="btn btn-primary">List Drinks</a>
+		 	</div>
+	    </div>
+
+	    <div class="col-md-5 border border-dark">
+	        <h3><img id="main_img" src="{% static 'cart/scone.png' %}">Snacks</h3>
+	        <hr>
+	        {% for snack in snacks_list %}
+			<div class="border border-dark items">
+		        <div>
+		        	<h4>{{snack.name}}</h4>
+		        	<a href="{% url 'edit_item' snack.name %}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+		        	<a href="{% url 'delete_item' snack.name %}"><button type="button" class="btn btn-primary btn-sm">Delete</button></a>
+		        	<a href="{% url 'features' snack.name %}"><button type="button" class="btn btn-primary btn-sm">Show Snack Features</button></a>
+
+		        </div>
+		    </div>
+		    {% endfor %}
+
+		    <hr>
+		    <div align="center">
+		 		<a href="{% url 'add_snack' %}"><button type="button" class="btn btn-primary ">Add Snack</button></a>
+		 		<a href="{% url 'items' 'snack' %}" class="btn btn-primary">List Snacks</a>
+		 	</div>
+	    </div>
+	</div>
+
+	<footer id="main-footer">
+	    <p>Copyright &copy; 2018 Morales</p>
+	</footer>
+
+</body>
+</html>
