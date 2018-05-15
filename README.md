@@ -25,15 +25,15 @@ Install Python and Django.
 ### Installing
 
 
-From coffeecart directory run python(3) manage.py createsuperuser and input credentials as asked
-From coffeecart directory run python(3) manage.py makemigrations
-From coffeecart directory run python(3) manage.py migrate
+-From coffeecart directory run python(3) manage.py createsuperuser and input credentials as asked
+-From coffeecart directory run python(3) manage.py makemigrations
+-From coffeecart directory run python(3) manage.py migrate
 
 
 ## Deployment
 
-From coffeecart directory run python(3) manage.py runserver
-Type http://localhost:8000/admin in your browser to use application and log in to your user using credentials that were made in the steps above
+-From coffeecart directory run python(3) manage.py runserver
+-Type http://localhost:8000/admin in your browser to use application and log in to your user using credentials that were made in the steps above
 
 Type http://localhost:8000/cart/ in your browser to use the application
 
